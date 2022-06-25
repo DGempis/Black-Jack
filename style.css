@@ -1,0 +1,28 @@
+body {
+    background-image: url(images/blackjack-bg2.jpeg);
+    background-size: cover;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
+h1{
+    color: goldenrod;
+}
+
+#message-ele{
+    font-style: italic;
+}
+
+button {
+    background: goldenrod;
+    color: #016f32;
+    width: 150px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    border: none;
+    border-radius: 2px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
