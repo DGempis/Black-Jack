@@ -12,6 +12,8 @@ let isAlive = false
 let messageEl = document.getElementById("message-ele") // Want to play a round?
 let cardsEl = document.getElementById("cards-ele") // Cards:
 let sumEl = document.getElementById("sum-ele")     // Sum: 
+let startBtn = document.getElementById("start-ele")
+let newCardBtn = document.getElementById("new-card-ele")
 
 message = ""
 
@@ -21,22 +23,40 @@ function startGame() {
     let secondCard = randomCard()
     cards = [firstCard, secondCard]
     sum = firstCard + secondCard
+    sumEl.textContent += sum
     renderGame()
 }
 
 function randomCard() {
-    let randomNumber = Math.floor (Math.random() * 13) + 1
+    let randomNumber = Math.floor(Math.random() * 13) + 1 
     if (randomNumber > 10){
     return 10
 } else if (randomNumber === 1){
     return 11
 } else {
-    return randomCard()
+    return randomNumber
 }
 }
 
 function newCard(){
-    let card = randomCard()
+    let thirdCard = randomCard()
+    cards.push(thirdCard)
+    cardsEl.textContent += cards[i] + " "
+    sum += thirdCard
+    sumEl.textContent = `Sum: ${sum}`
+
+    if (sum < 21){
+        hasBlackJack = false
+        isAlive = true
+        message = "Do you want to draw another card?"
+    } else if (sum <= 21){
+        hasBlackJack = true
+        message = "You've got Blackjack!"
+    } else {
+        hasBlackJack = false
+        message = "You lose."
+    }
+    messageEl.textContent = message
 }
 
 function renderGame(){
@@ -54,4 +74,5 @@ function renderGame(){
         hasBlackJack = false
         message = "You lose."
     }
+    messageEl.textContent = message
 }
